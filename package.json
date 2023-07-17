@@ -2,19 +2,24 @@
   "name": "restaurant-page",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy": "git subtree push --prefix dist origin gh-pages"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
+    "css-loader": "^6.8.1",
+    "scss-loader": "^0.0.1",
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4"
   },
-  "dependencies": {
-    "lodash": "^4.17.21"
+  "devDependencies": {
+    "node-sass": "^9.0.0",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3"
   }
 }
