@@ -1,4 +1,8 @@
-$background: #EFC69B;
+$background: #F5EBDC;
+$brown: #502314;
+$header: #D62300;
+
+
 
 @mixin flex($flex-direction: row) {
     display: flex;
@@ -10,6 +14,7 @@ $background: #EFC69B;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
@@ -17,23 +22,37 @@ body {
     
     header {
         width: 100vw;
-        height: 10vh;
+        height: 5vh;
         @include flex(row);
         justify-content: space-between;
         padding: 0 12px;
+        background-color: $header;
+        color: $background;
+        align-items: center;
         
 
         nav {
+            height: 100%;
+            @include flex(row);
+            gap: 8px;
             
-            ul {
-                @include flex(row);
-                gap: 8px;
-                list-style: none;
+            button {
+                width: 100px;
+                height: 100%;
+                border: 0;
+                background-color: transparent;
+                color: rgb(245, 235, 220);
+                font-size: 24px;
+                font-weight: bold;
+            }
 
-                li:hover {
-                    background-color: #564139;
-                    color: white
-                }
+            button:hover {
+                text-decoration: underline;
+                background-color: $brown;
+                
+            }
+            .selected {
+                background-color: $brown;
             }
         }
         
@@ -42,8 +61,91 @@ body {
     main {
         width: 100vw;
         height: 90vh;
+        padding-top: 32px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 32px;
+        .home {
+           
+            width: 50%;
+            
+
+            display: flex;
+            justify-content: space-evenly;
+
+            
+            
+        }
+        .textualContent {
+            display: flex;
+            flex-direction: column;
+            color: $brown;
+        }
+        .homeImg {
+            width: 320px;
+            height: 227px;
+        }
+        .quoteDiv {
+            background-color: $brown;
+            color: $background;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+
+            font-size: 24px;
+            padding: 24px;
+            
+        }
+
+        //Menu Page
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .menuItem {
+            width: 500px;
+            height: 250px;
+            border-radius: 10px;
+            background-color: white;
+            color: $brown;
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;    
+            img {
+                width: 280px;
+            }
+        }
+        .menuItem:hover {
+            background-color: $header;
+            color: $background
+        }
         
     }
+
+    footer {
+        width: 100vw;
+        height: 5vh;
+
+        background-color: $header;
+        color: $background;
+        font-weight: bolder;
+
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+    }
+    a {
+        color: $background;
+    }
+
+    
 
 }
 
