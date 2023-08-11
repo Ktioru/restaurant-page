@@ -1,5 +1,3 @@
-
-
 const ul = document.createElement("ul")
 let navBar = {
     home: document.createElement("button"),
@@ -82,45 +80,77 @@ const menu = {
 }
 
 menu.menu.classList.add("menu")
+for (let c = 0; c < 9; c++) {
+    let menuItem = document.createElement("div")
+    menuItem.classList.add("menuItem")
+
+    let menuText = document.createElement("h1")
+    menuText.innerText = "Really Cool Fries"
+
+    let menuImage = document.createElement("img")
+    menuImage.src = "../assets/fries.jpg"
+
+    menuItem.appendChild(menuText)
+    menuItem.appendChild(menuImage)
+    menu.menu.appendChild(menuItem)
+    
+}
 
 //Contact
 const contact = {
-    
+    contact: document.createElement("div"),
+    contactTitle: document.createElement("h1"),
+    phoneNumber: document.createElement("p"),
+    email: document.createElement("p"),
+    adress: document.createElement("p"),
 
 }
+contact.contactTitle.innerText = "Be Sure to Contact Us!"
+contact.phoneNumber.innerText = "555-555-5555"
+contact.email.innerText = "theMostRealisticEmail@gmail.com"
+contact.adress.innerText = "coolRoad, Chicago, US"
 
+
+contact.contact.appendChild(contact.contactTitle)
+contact.contact.appendChild(contact.phoneNumber)
+
+contact.contact.appendChild(contact.email)
+contact.contact.appendChild(contact.adress)
+
+contact.contact.classList.add("contact")
+
+
+let selected
 
 function genHome(page) {
-    if (page == "home") {
-        navBar.home.classList.add("selected")
-
-        content.appendChild(home.mainDiv)
-        content.appendChild(home.quote)
-    } else if (page == "menu") {
-        navBar.menu.classList.add("selected")
-        
-        for (let c = 0; c < 9; c++) {
-            let menuItem = document.createElement("div")
-            menuItem.classList.add("menuItem")
-
-            let menuText = document.createElement("h1")
-            menuText.innerText = "Really Cool Fries"
-
-            let menuImage = document.createElement("img")
-            menuImage.src = "../assets/fries.jpg"
-
-            menuItem.appendChild(menuText)
-            menuItem.appendChild(menuImage)
-            menu.menu.appendChild(menuItem)
-
+    if (selected != page) {
+        content.innerHTML = ""
+        navBar.home.classList.remove("selected")
+        navBar.menu.classList.remove("selected")
+        navBar.contact.classList.remove("selected")
+        if (page == "home") {
+            navBar.home.classList.add("selected")
+            
+    
+            content.appendChild(home.mainDiv)
+            content.appendChild(home.quote)
+            selected = "home"
+        } else if (page == "menu") {
+            navBar.menu.classList.add("selected")
+            
+           
+            content.appendChild(menu.menu)
+            selected = "menu"
+        } else if (page == "contact") {
+            navBar.contact.classList.add("selected")
+            content.appendChild(contact.contact)
+            selected = "contact"
         }
-        content.appendChild(menu.menu)
-
-    } else if (page == "contact") {
-
     }
     
     
+    
 
     
 }
+genHome("home")

@@ -37,7 +37,7 @@ body {
             gap: 8px;
             
             button {
-                width: 100px;
+                width: 120px;
                 height: 100%;
                 border: 0;
                 background-color: transparent;
@@ -64,6 +64,7 @@ body {
         padding-top: 32px;
         display: flex;
         align-items: center;
+        
         flex-direction: column;
         gap: 32px;
         .home {
@@ -123,6 +124,11 @@ body {
         .menuItem:hover {
             background-color: $header;
             color: $background
+        }
+
+        //Contact Page
+        .contact {
+            color: $brown
         }
         
     }
